@@ -10,7 +10,13 @@ const styles = {
     height: '100vh',
     backgroundColor: '#212d3a',
   },
-  label: {
+  titleLabe: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 40,
+  },
+  counterLabel: {
     color: 'white',
     fontSize: 40,
     fontWeight: 'bold',
@@ -27,10 +33,17 @@ const styles = {
   }
 }
 
-function Label(props) {
-  console.log('😲 [Label] render')
+function TitleLabel(props) {
+  console.log('🚀 [Title Label] render')
   return (
-    <p {...props} style={styles.label} />
+    <span {...props} style={styles.titleLabe} />
+  ) 
+}
+
+function CounterLabel(props) {
+  console.log('😲 [Counter Label] render')
+  return (
+    <span {...props} style={styles.counterLabel} />
   ) 
 }
 
@@ -46,7 +59,8 @@ function App() {
   const countUp = () => setCount(pre => pre + 1)
   return (
     <div style={styles.root}>
-      <Label>{count}</Label>
+      <TitleLabel>Counter</TitleLabel>
+      <CounterLabel>{count}</CounterLabel>
       <Button onClick={countUp}>
         Count Up
       </Button>
